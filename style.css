@@ -1,0 +1,82 @@
+
+/* ACF Core 
+------------------------------------------------------------*/
+.acf-flexible-content .layout .acf-fc-modal-content > .acf-table {
+	border: 0 none;
+	box-shadow: none;
+}
+.acf-flexible-content .layout .acf-fc-modal-content > .acf-table > tbody > tr {
+	background: #fff;
+}
+.acf-flexible-content .layout .acf-fc-modal-content > .acf-table > thead > tr > th {
+	background: #F9F9F9;
+}
+.acf-repeater .acf-row.-collapsed .acf-fc-modal-content > .acf-fields > * {
+	display: none !important;
+}
+.acf-repeater .acf-row.-collapsed .acf-fc-modal-content > .acf-fields > .acf-field.-collapsed-target {
+	display: block !important;
+}
+
+
+/* Modal
+------------------------------------------------------------*/
+body.acf-modal-open {
+	overflow: hidden;	
+}
+
+.acf-flexible-content .layout.-modal {
+	z-index: 100060;
+	position: fixed !important;
+	top: 5vh;
+	left: 10vw;
+	width: 80vw;
+	max-height: 90vh;
+}
+
+.acf-flexible-content .layout > .acf-fc-modal-content {
+	display: none;
+}
+
+.acf-flexible-content .layout.-modal > .acf-fc-modal-content {
+	display: block;
+    overflow: auto;
+    max-height: calc(90vh - 38px);
+}
+
+.acf-flexible-content .layout .acf-fc-modal-title {
+	display: none;
+	box-sizing: border-box;
+	height: 37px;
+	line-height: 37px;
+	padding: 0 10px;
+	background: #eee;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.acf-flexible-content .layout .acf-fc-modal-title .acf-icon {
+	float: right;
+	top: 4px;
+}
+
+.acf-flexible-content .layout .acf-fc-modal-title .acf-fc-layout-order {
+	background: #ddd;
+}
+
+.acf-flexible-content .layout.-modal .acf-fc-modal-title {
+	display: block;
+}
+
+.acf-flexible-content .layout.-modal .acf-fc-layout-controlls,
+.acf-flexible-content .layout.-modal .acf-fc-layout-handle {
+	display: none;
+}
+
+.acf-flexible-content .layout .acf-fc-layout-handle {
+	border: none !important;
+}
+
+.acf-icon.-pencil:before {
+	font-size: 12px;	
+}
+
