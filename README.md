@@ -6,6 +6,8 @@
 
 The button to collapse the layout's elements will be changed to a Edit button, the fields will be opened inside a Modal windows. This will let you order the list of layouts easily and to fill the fields separately.
 
+[Plugin Page](https://wordpress.org/plugins/acf-flexible-content-modal/)
+
 ## Screenshots
 
 Free layouts list to order easily.
