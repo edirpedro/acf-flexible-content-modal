@@ -18,6 +18,15 @@
 	display: block !important;
 }
 
+/* All collapsed */
+.acf-flexible-content .layout .acf-fc-layout-handle {
+	border-bottom-width: 0;
+}
+.acf-flexible-content .layout > .acf-fields,
+.acf-flexible-content .layout > .acf-table {
+	display: none;
+}
+
 
 /* Modal
 ------------------------------------------------------------*/
@@ -29,9 +38,13 @@ body.acf-modal-open {
 	z-index: 100060;
 	position: fixed !important;
 	top: 5vh;
-	left: 10vw;
-	width: 80vw;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 90vw;
+	max-width: 960px;
 	max-height: 90vh;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.7);
 }
 
 .acf-flexible-content .layout > .acf-fc-modal-content {
