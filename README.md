@@ -1,5 +1,7 @@
 # ACF Flexible Content Modal
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=S3LJ44E4W8HRJ)
+
 > Make ACF Flexible Content editing the content of each layout using a Modal window.
 
 ## Description
