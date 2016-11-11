@@ -2,8 +2,8 @@
 Contributors: edir
 Tags: acf, advanced-custom-field, flexible-content
 Requires at least: 4.5.2
-Tested up to: 4.5.3
-Stable tag: 1.1
+Tested up to: 4.6.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,10 @@ The button to collapse the layout's elements will be replaced to a Edit button, 
 2. Modal window to fill the contents.
 
 == Changelog ==
+
+= 1.1.2 =
+* Nested FC bugfix.
+* Edit button fix for ACF 5.5.
 
 = 1.1 =
 * Limit width of the modal window to do not create too large fields.
