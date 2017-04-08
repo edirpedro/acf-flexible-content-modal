@@ -15,6 +15,10 @@ Make ACF Flexible Content editing the content of each layout using a Modal windo
 
 The button to collapse the layout's elements will be replaced to a Edit button, the fields will be opened inside a Modal window. This will let you order the list of layouts easily and to fill the fields separately.
 
+= Layout Title =
+
+If you want to name each of the flexible content layout, you can use the ACF hook [acf/fields/flexible_content/layout_title](https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/).
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/acf-fc-modal` directory, or install the plugin through the WordPress plugins screen directly.
