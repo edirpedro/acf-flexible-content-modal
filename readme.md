@@ -10,6 +10,12 @@ The button to collapse the layout's elements will be changed to a Edit button, t
 
 [Plugin Page](https://wordpress.org/plugins/acf-flexible-content-modal/)
 
+## Layout Title
+
+If you want to name each of the flexible content layout, you can use the ACF hook `acf/fields/flexible_content/layout_title`. Read the link below to know how to do it.
+
+https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/
+
 ## Screenshots
 
 Free layouts list to order easily.
