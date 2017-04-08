@@ -12,9 +12,7 @@ The button to collapse the layout's elements will be changed to a Edit button, t
 
 ## Layout Title
 
-If you want to name each of the flexible content layout, you can use the ACF hook `acf/fields/flexible_content/layout_title`. Read the link below to know how to do it.
-
-https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/
+If you want to name each of the flexible content layout, you can use the ACF hook [acf/fields/flexible_content/layout_title](https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/).
 
 ## Screenshots
 
