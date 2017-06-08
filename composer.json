@@ -1,0 +1,28 @@
+{
+	"name": "edirpedro/acf-flexible-content-modal",
+	"type": "wordpress-plugin",
+	"license": "MIT",
+	"description": "Make ACF Flexible Content editing the content of each layout using a Modal window.",
+	"homepage": "https://github.com/edirpedro/acf-flexible-content-modal",
+	"support": {
+		"issues": "https://github.com/edirpedro/acf-flexible-content-modal/issues",
+		"source": "https://github.com/edirpedro/acf-flexible-content-modal.git"
+	},
+	"authors": [
+		{
+			"name": "Edir Pedro",
+			"email": "edirps@gmail.com",
+			"homepage": "https://github.com/edirpedro"
+		}
+	],
+	"keywords": [
+		"acf",
+		"advanced custom fields",
+		"flexible content"
+	],
+	"prefer-stable": true,
+	"require": {
+		"composer/installers": "^1.0",
+		"php": ">=5.2.0"
+	}
+}
