@@ -18,6 +18,11 @@
 	display: block !important;
 }
 
+.acf-tooltip,
+.acf-fc-popup {
+	z-index: 900000 !important;
+}
+
 /* All collapsed */
 .acf-fields.-top > .acf-field-flexible-content > .acf-input > .acf-flexible-content > .values > .layout > .acf-fc-layout-handle {
 	border-bottom-width: 0;
@@ -26,7 +31,6 @@
 .acf-fields.-top > .acf-field-flexible-content > .acf-input > .acf-flexible-content > .values > .layout > .acf-table {
 	display: none;
 }
-
 
 /* Modal
 ------------------------------------------------------------*/
@@ -87,6 +91,11 @@ body.acf-modal-open {
 
 .acf-flexible-content .layout.fc-modal > .acf-fc-layout-handle {
 	border: none !important;
+}
+
+.acf-flexible-content .layout.layout-error-messages > .acf-fc-layout-handle .acf-fc-layout-order {
+	background: #F55E4F;
+	color: #fff;
 }
 
 .acf-icon.-pencil:before {

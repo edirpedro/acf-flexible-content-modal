@@ -33,6 +33,10 @@ If you want to name each of the flexible content layout, you can use the ACF hoo
 
 == Changelog ==
 
+= 1.2 =
+* FC can indicate witch layout has errors to check.
+* Fixed ACF Tooltips and Popups
+
 = 1.1.2 =
 * Nested FC bugfix.
 * Edit button fix for ACF 5.5.

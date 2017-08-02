@@ -13,6 +13,15 @@ jQuery(document).ready(function() {
 		// ACF FC Modal
 		acf_fc_modal_init();
 		
+		// Indicate after validation failure
+		acf.add_action('validation_begin', function() {
+			jQuery('.acf-flexible-content .layout').removeClass('layout-error-messages');
+		});
+		
+		acf.add_action('add_field_error', function($field) {
+			$field.parents('.layout').addClass('layout-error-messages');	
+		});
+		
 	} catch(e) {}
 	
 });
@@ -37,9 +46,9 @@ function acf_fc_modal_init() {
 		// Edit button
 		var controls = layout.find('> .acf-fc-layout-controlls');
 		if(controls.is('ul'))
-			controls.append('<li><a class="acf-icon -pencil small" href="#" data-event="edit-layout" title="Edit layout"></a></li>');
+			controls.append('<li><a class="acf-icon -pencil small light" href="#" data-event="edit-layout" title="Edit layout"></a></li>');
 		else
-			controls.append('<a class="acf-icon -pencil small" href="#" data-event="edit-layout" title="Edit layout"></a>');
+			controls.append('<a class="acf-icon -pencil small light" href="#" data-event="edit-layout" title="Edit layout"></a>');
 		layout.find('> .acf-fc-layout-controlls a.-pencil').on('click', acf_fc_modal_open);
 		
 		// Add modal elements

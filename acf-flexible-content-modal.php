@@ -4,7 +4,7 @@
  * Plugin Name: ACF Flexible Content Modal
  * Description: Make ACF Flexible Content editing the content of each layout using a Modal window.
  * Plugin URI: http://wordpress.org/plugins/acf-flexible-content-modal/
- * Version: 1.1.2
+ * Version: 1.2
  * Author: Edir Pedro
  * Author URI: http://edirpedro.com.br
  * License: GPL2
