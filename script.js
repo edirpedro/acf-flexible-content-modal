@@ -13,15 +13,6 @@ jQuery(document).ready(function() {
 		// ACF FC Modal
 		acf_fc_modal_init();
 		
-		// Indicate after validation failure
-		acf.add_action('validation_begin', function() {
-			jQuery('.acf-flexible-content .layout').removeClass('layout-error-messages');
-		});
-		
-		acf.add_action('add_field_error', function($field) {
-			$field.parents('.layout').addClass('layout-error-messages');	
-		});
-		
 	} catch(e) {}
 	
 });
