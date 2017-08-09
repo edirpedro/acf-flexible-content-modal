@@ -20,7 +20,7 @@
 
 .acf-tooltip,
 .acf-fc-popup {
-	z-index: 900000 !important;
+	z-index: 10002 !important;
 }
 
 /* All collapsed */
@@ -38,8 +38,20 @@ body.acf-modal-open {
 	overflow: hidden;	
 }
 
+#acf-flexible-content-modal-overlay {
+	background: #000;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10000;
+}
+
 .acf-flexible-content .layout.-modal {
-	z-index: 100060;
+	z-index: 10001;
 	position: fixed !important;
 	top: 5vh !important;
 	left: 0 !important;
@@ -96,4 +108,3 @@ body.acf-modal-open {
 .acf-icon.-pencil:before {
 	font-size: 12px;	
 }
-

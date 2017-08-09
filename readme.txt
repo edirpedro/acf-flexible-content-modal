@@ -3,7 +3,7 @@ Contributors: edir
 Tags: acf, advanced-custom-field, flexible-content
 Requires at least: 4.5.2
 Tested up to: 4.8.1
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,8 +33,9 @@ If you want to name each of the flexible content layout, you can use the ACF hoo
 
 == Changelog ==
 
-= 1.1.3 =
-* Fixed ACF Tooltips and Popups
+= 1.1.4 =
+* Fixed ACF Tooltips and Popups.
+* Fixed modal overlay hiding some elements like editor dropdown.
 
 = 1.1.2 =
 * Nested FC bugfix.

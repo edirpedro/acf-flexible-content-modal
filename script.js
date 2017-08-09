@@ -60,8 +60,8 @@ function acf_fc_modal_open() {
 		var caption = layout.find('> .acf-fc-layout-handle').html();
 		layout.find('.acf-fc-modal-title').html(caption + '<a class="acf-icon -cancel" href="javascript:acf_fc_modal_remove()">');
 		layout.addClass('-modal');
-		jQuery("body").append("<div id='TB_overlay'></div>");
-		jQuery("#TB_overlay").click(acf_fc_modal_remove);
+		jQuery("body").append("<div id='acf-flexible-content-modal-overlay'></div>");
+		jQuery("#acf-flexible-content-modal-overlay").click(acf_fc_modal_remove);
 		jQuery('body').addClass('acf-modal-open');
 	}
 }
@@ -71,5 +71,5 @@ function acf_fc_modal_remove() {
 	jQuery('body').removeClass('acf-modal-open');
 	jQuery('.acf-flexible-content .layout.-modal > .acf-fc-layout-handle').click(); // To reload layout title
 	jQuery('.acf-flexible-content .layout').removeClass('-modal');
-	jQuery("#TB_overlay").remove();
+	jQuery("#acf-flexible-content-modal-overlay").remove();
 }
