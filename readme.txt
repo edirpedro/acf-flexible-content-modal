@@ -34,7 +34,7 @@ If you want to name each of the flexible content layout, you can use the ACF hoo
 == Changelog ==
 
 = 1.1.5 =
-* Added a feature to indicate which FC field has error messages.
+* Added a feature to indicate which FC layout field have error messages.
 
 = 1.1.4 =
 * Fixed ACF Tooltips and Popups.
