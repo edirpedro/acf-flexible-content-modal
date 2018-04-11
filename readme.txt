@@ -2,8 +2,8 @@
 Contributors: edir
 Tags: acf, advanced-custom-field, flexible-content
 Requires at least: 4.5.2
-Tested up to: 4.8.1
-Stable tag: 1.1.4
+Tested up to: 4.9.5
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ If you want to name each of the flexible content layout, you can use the ACF hoo
 2. Modal window to fill the contents.
 
 == Changelog ==
+
+= 1.1.5 =
+* Added a feature to indicate which FC field has error messages.
 
 = 1.1.4 =
 * Fixed ACF Tooltips and Popups.

@@ -7,6 +7,7 @@ jQuery(document).ready(function() {
 		var acf_fc_render = acf.fields.flexible_content.render;
 		acf.fields.flexible_content.render = function() {
 			acf_fc_modal_init();
+			acf_fc_modal_handle_validation();
 			return acf_fc_render.apply(this, arguments);
 		}
 		
@@ -73,3 +74,25 @@ function acf_fc_modal_remove() {
 	jQuery('.acf-flexible-content .layout').removeClass('-modal');
 	jQuery("#acf-flexible-content-modal-overlay").remove();
 }
+
+// Indicate after validation failures
+function acf_fc_modal_handle_validation() {
+	
+	acf.add_action('validation_begin', function() { 
+		jQuery('.acf-flexible-content .layout').removeClass('layout-error-messages'); 
+	}); 
+	
+	acf.add_action('add_field_error', function($field) { 
+		$field.parents('.layout:not(.acf-clone)').addClass('layout-error-messages'); 
+	});
+	
+	acf.add_action('remove_field_error', function($field) { 
+		$field.parents('.layout:not(.acf-clone)').each(function() {
+			var layout = jQuery(this);
+			if(layout.find('.acf-error').length == 0)
+				layout.removeClass('layout-error-messages'); 
+		});
+	});
+	
+}
+

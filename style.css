@@ -108,3 +108,8 @@ body.acf-modal-open {
 .acf-icon.-pencil:before {
 	font-size: 12px;	
 }
+
+.acf-flexible-content .layout.layout-error-messages > .acf-fc-layout-handle .acf-fc-layout-order { 
+	background: #F55E4F;
+	color: #fff; 
+}
