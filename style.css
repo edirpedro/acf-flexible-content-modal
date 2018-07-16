@@ -84,6 +84,7 @@ body.acf-modal-open {
 }
 
 .acf-flexible-content .layout .acf-fc-modal-title > .acf-icon {
+	cursor: pointer;
 	float: right;
 	top: 4px;
 }
@@ -97,6 +98,7 @@ body.acf-modal-open {
 }
 
 .acf-flexible-content .layout.-modal > .acf-fc-layout-controlls,
+.acf-flexible-content .layout.-modal > .acf-fc-layout-controls,
 .acf-flexible-content .layout.-modal > .acf-fc-layout-handle {
 	display: none;
 }

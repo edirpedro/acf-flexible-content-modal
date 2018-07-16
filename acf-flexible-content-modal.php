@@ -4,7 +4,7 @@
  * Plugin Name: ACF Flexible Content Modal
  * Description: Make ACF Flexible Content editing the content of each layout using a Modal window.
  * Plugin URI: http://wordpress.org/plugins/acf-flexible-content-modal/
- * Version: 1.1.5
+ * Version: 1.2
  * Author: Edir Pedro
  * Author URI: http://edirpedro.com.br
  * License: GPL2
@@ -17,7 +17,7 @@
 defined('ABSPATH') or die("No script kiddies please!");
 
 
-class ModuleACFFCm {
+class ACFFCM {
 
 	// Unique name of the module
 	static private $id = 'acf-fc-modal';
@@ -60,7 +60,9 @@ class ModuleACFFCm {
 	*  Register Admin Scripts
 	*/
 	static public function admin_script() {
-		wp_enqueue_script('acf_fc_modal', plugins_url('script.js', __FILE__)); 
+		global $acf;
+		$filename = ($acf && version_compare($acf->version, '5.7.0', '>=')) ? 'script.js' : 'script-old.js';
+		wp_enqueue_script('acf_fc_modal', plugins_url($filename, __FILE__), array('acf-input'));
 	}
 	
 	/*
@@ -80,12 +82,10 @@ class ModuleACFFCm {
 }
 
 // Activating
-register_activation_hook(__FILE__, array('ModuleACFFCm', 'activate'));
+register_activation_hook(__FILE__, array('ACFFCM', 'activate'));
 
 // Deactivating
-register_deactivation_hook(__FILE__, array('ModuleACFFCm', 'deactivate'));
+register_deactivation_hook(__FILE__, array('ACFFCM', 'deactivate'));
 
 // Initialize
-add_action('init', array('ModuleACFFCm', 'init'));
-
-?>
+add_action('init', array('ACFFCM', 'init'));
