@@ -1,61 +1,70 @@
 (function($) {
 		
 	var ACFFCM = {
-		
+
 		init: function() {
 			
-			try {
-					
-				acf.addAction('load_field/type=flexible_content', function(field) {
-					field.$el.find('.layout:not(.acf-clone):not(.fc-modal)').each(function() {
-						ACFFCM.addModal($(this));
-					});
+			if(typeof acf === 'undefined') {
+				console.error('ACF JavaScript library not found!');
+				return false;
+			}
+			
+			// Add modal to current layouts
+			acf.addAction('load_field/type=flexible_content', function(field) {
+				field.$el.find('.layout:not(.acf-clone):not(.fc-modal)').each(function() {
+					var $layout = $(this);
+					if(!ACFFCM.isNested($layout))
+						ACFFCM.addModal($layout);
 				});
+			});
 
-				acf.addAction('append', function($el) {
-					if($el.is('.layout')) {
-						ACFFCM.addModal($el);
-						// automatically open after append it, to improve usability
-						$el.find('> .acf-fc-layout-controls a.-pencil').trigger('click');
-					}
-				});
-				
-				acf.addAction('load_field', function($el) {
-					console.log('load_field');
-				});
+			// Add modal to new layouts
+			acf.addAction('after_duplicate', function($clone, $el) {
+				if($el.is('.layout') && !ACFFCM.isNested($clone))
+					ACFFCM.addModal($el);
+			});
 
-				acf.addAction('invalid_field', function(field) {
-					ACFFCM.invalidField(field.$el);
-				});
-				
-				acf.addAction('valid_field', function(field) {
-					ACFFCM.validField(field.$el);
-				});
-				
-			} catch(e) {};
+			// Automatically open the new layout after append it, to improve usability
+			acf.addAction('append', function($el) {
+				if($el.is('.layout'))
+					$el.find('> .acf-fc-layout-controls a.-pencil').trigger('click');
+			});
+
+			// Point error messages inside FC
+			acf.addAction('invalid_field', function(field) {
+				ACFFCM.invalidField(field.$el);
+			});
+			
+			// Remove error messages
+			acf.addAction('valid_field', function(field) {
+				ACFFCM.validField(field.$el);
+			});
 						
 		},
 		
-		addModal: function($layout) {
+		// Check for nested FC fields to do not include a modal in it
+		isNested: function($layout) {
 			
-			// Don't add modal to nested FC fields
-			if($layout.parents('.acf-fields').length > 1)
-				return false;
-						
+			return $layout.parents('.acf-fields').length > 1;
+			
+		},
+		
+		addModal: function($layout) {
+										
 			$layout.addClass('fc-modal');
+			$layout.removeClass('-collapsed');
 			
 			// Remove collapse button and click event
 			$layout.find('> .acf-fc-layout-handle').off('click');
 			$layout.find('> .acf-fc-layout-controls > a.-collapse').remove();
 					
 			// Edit button
-			var edit = $('<a class="acf-icon -pencil small light" href="#" data-event="edit-layout" title="Edit layout" />').on('click', ACFFCM.open);
+			var edit = $('<a class="acf-icon -pencil small light" href="#" data-event="edit-layout" title="Edit layout" />');
+			edit.on('click', ACFFCM.open);
 			$layout.find('> .acf-fc-layout-controls').append(edit);
 			
 			// Add modal elements
-			$layout.prepend('<div class="acf-fc-modal-title" />');
-			
-			// FIXME: breaks TinyMCE after append a new layout on page
+			$layout.prepend('<div class="acf-fc-modal-title" />');			
 			$layout.find('> .acf-fields, > .acf-table').wrapAll('<div class="acf-fc-modal-content" />');
 			
 		},
@@ -64,31 +73,27 @@
 			
 			var $layout = $(this).parents('.layout');
 			
-			if(!$layout.hasClass('-modal')) {
-				
-				$layout.removeClass('-collapsed');
-				
-				var caption = $layout.find('> .acf-fc-layout-handle').html();
-				var a = $('<a class="acf-icon -cancel" />').on('click', ACFFCM.close);
-				
-				$layout.find('.acf-fc-modal-title').html(caption).append(a);
-				$layout.addClass('-modal');
-				
-				$('body').append("<div id='acf-flexible-content-modal-overlay' />");
-				$('#acf-flexible-content-modal-overlay').on('click', ACFFCM.close);
-				$('body').addClass('acf-modal-open');
-				
-			}
+			var caption = $layout.find('> .acf-fc-layout-handle').html();
+			var a = $('<a class="acf-icon -cancel" />').on('click', ACFFCM.close);
+			
+			$layout.find('.acf-fc-modal-title').html(caption).append(a);
+			$layout.addClass('-modal');
+			
+			$('body').append("<div id='acf-flexible-content-modal-overlay' />");
+			$('#acf-flexible-content-modal-overlay').on('click', ACFFCM.close);
+			$('body').addClass('acf-modal-open');
 
 		},
 		
 		close: function() {
-			
+
+			// Refresh layout title
+			$('.acf-flexible-content .layout.-modal > .acf-fc-layout-handle').click();
+						
 			$('body').removeClass('acf-modal-open');
-			$('.acf-flexible-content .layout.-modal > .acf-fc-layout-handle').click(); // To reload layout title
 			$('.acf-flexible-content .layout').removeClass('-modal');
 			$('#acf-flexible-content-modal-overlay').remove();
-			
+
 		},
 		
 		invalidField: function($el) {

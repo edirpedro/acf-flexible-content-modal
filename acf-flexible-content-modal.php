@@ -21,11 +21,21 @@ class ACFFCM {
 
 	// Unique name of the module
 	static private $id = 'acf-fc-modal';
+	
+	// Path
+	static private $path = '';
 
 	/*
 	*  Initialize function
 	*/
 	static public function init() {
+		global $acf;
+		
+		// Path
+		if($acf) {
+			if(version_compare($acf->version, '5.7.0', '<'))
+				self::$path = '/acf/5.6';
+		}
 
 		// Hooks
 		add_action('init', array(__CLASS__, 'theme_css'));
@@ -53,16 +63,14 @@ class ACFFCM {
 	*  Register Admin Stylesheets
 	*/
 	static public function admin_css() {
-		wp_enqueue_style('acf_fc_modal', plugins_url('style.css', __FILE__)); 
+		wp_enqueue_style('acf-fc-modal', plugins_url(self::$path . '/style.css', __FILE__), array('acf-input'));
 	}
 	
 	/*
 	*  Register Admin Scripts
 	*/
 	static public function admin_script() {
-		global $acf;
-		$filename = ($acf && version_compare($acf->version, '5.7.0', '>=')) ? 'script.js' : 'script-old.js';
-		wp_enqueue_script('acf_fc_modal', plugins_url($filename, __FILE__), array('acf-input'));
+		wp_enqueue_script('acf-fc-modal', plugins_url(self::$path . '/script.js', __FILE__), array('acf-input'));
 	}
 	
 	/*
