@@ -10,6 +10,7 @@
 			}
 			
 			// Add modal to current layouts
+			
 			acf.addAction('load_field/type=flexible_content', function(field) {
 				field.$el.find('.layout:not(.acf-clone):not(.fc-modal)').each(function() {
 					var $layout = $(this);
@@ -19,23 +20,27 @@
 			});
 
 			// Add modal to new layouts
+			
 			acf.addAction('after_duplicate', function($clone, $el) {
 				if($el.is('.layout') && !ACFFCM.isNested($clone))
 					ACFFCM.addModal($el);
 			});
 
 			// Automatically open the new layout after append it, to improve usability
+			
 			acf.addAction('append', function($el) {
 				if($el.is('.layout'))
 					$el.find('> .acf-fc-layout-controls a.-pencil').trigger('click');
 			});
 
 			// Point error messages inside FC
+			
 			acf.addAction('invalid_field', function(field) {
 				ACFFCM.invalidField(field.$el);
 			});
 			
 			// Remove error messages
+			
 			acf.addAction('valid_field', function(field) {
 				ACFFCM.validField(field.$el);
 			});
@@ -43,6 +48,7 @@
 		},
 		
 		// Check for nested FC fields to do not include a modal in it
+		
 		isNested: function($layout) {
 			
 			return $layout.parents('.acf-fields').length > 1;
@@ -55,15 +61,18 @@
 			$layout.removeClass('-collapsed');
 			
 			// Remove collapse button and click event
+			
 			$layout.find('> .acf-fc-layout-handle').off('click');
 			$layout.find('> .acf-fc-layout-controls > a.-collapse').remove();
 					
 			// Edit button
+			
 			var edit = $('<a class="acf-icon -pencil small light" href="#" data-event="edit-layout" title="Edit layout" />');
 			edit.on('click', ACFFCM.open);
 			$layout.find('> .acf-fc-layout-controls').append(edit);
 			
 			// Add modal elements
+			
 			$layout.prepend('<div class="acf-fc-modal-title" />');			
 			$layout.find('> .acf-fields, > .acf-table').wrapAll('<div class="acf-fc-modal-content" />');
 			
@@ -74,7 +83,7 @@
 			var $layout = $(this).parents('.layout');
 			
 			var caption = $layout.find('> .acf-fc-layout-handle').html();
-			var a = $('<a class="acf-icon -cancel" />').on('click', ACFFCM.close);
+			var a = $('<a class="dashicons dashicons-no -cancel" />').on('click', ACFFCM.close);
 			
 			$layout.find('.acf-fc-modal-title').html(caption).append(a);
 			$layout.addClass('-modal');
@@ -88,7 +97,13 @@
 		close: function() {
 
 			// Refresh layout title
-			$('.acf-flexible-content .layout.-modal > .acf-fc-layout-handle').click();
+			
+			var modal = $('.acf-flexible-content .layout.-modal');
+			var fc = modal.parents('.acf-field-flexible-content');
+			fc = acf.getField(fc.attr('data-key'));
+			fc.closeLayout(fc.$layout(modal.index()));
+			
+			// Close
 						
 			$('body').removeClass('acf-modal-open');
 			$('.acf-flexible-content .layout').removeClass('-modal');
