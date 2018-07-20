@@ -35,7 +35,7 @@ If you want to name each of the flexible content layout, you can use the ACF hoo
 
 = 1.2 =
 * Rebuild to support ACF 5.7 and organize the code
-* Adding a new layout now pops up the modal from that layout (1.2+ only)
+* Adding a new layout now pops up the modal from that layout (ACF 5.7+)
 
 = 1.1.5 =
 * Added a feature to indicate which FC layout field have error messages.
