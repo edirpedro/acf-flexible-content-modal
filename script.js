@@ -44,6 +44,13 @@
 			acf.addAction('valid_field', function(field) {
 				ACFFCM.validField(field.$el);
 			});
+			
+			// Pressing ESC makes the modal to close
+			
+			$(document).keyup(function(e) {
+				if(e.keyCode == 27 && $('body').hasClass('acf-modal-open'))
+					ACFFCM.close();
+			});
 						
 		},
 		
@@ -51,7 +58,7 @@
 		
 		isNested: function($layout) {
 			
-			return $layout.parents('.acf-fields').length > 1;
+			return $layout.parents('.acf-field-flexible-content').length > 1;
 			
 		},
 		

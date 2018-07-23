@@ -35,6 +35,10 @@
 /* Modal
 ------------------------------------------------------------*/
 
+body.acf-modal-open {	
+	overflow: hidden; /* popup from fc layout selector can't scroll */	
+}
+
 #acf-flexible-content-modal-overlay {
 	background: #000;
 	opacity: 0.7;
