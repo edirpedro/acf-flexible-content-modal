@@ -1,6 +1,7 @@
 
 /* ACF Core 
 ------------------------------------------------------------*/
+
 .acf-flexible-content .layout .acf-fc-modal-content > .acf-table {
 	border: 0 none;
 	box-shadow: none;
@@ -23,7 +24,22 @@
 	z-index: 10002 !important;
 }
 
+.acf-flexible-content .layout:hover .acf-fc-layout-controls .acf-icon.-plus, 
+.acf-flexible-content .layout.-hover .acf-fc-layout-controls .acf-icon.-plus, 
+.acf-flexible-content .layout:hover .acf-fc-layout-controls .acf-icon.-minus, 
+.acf-flexible-content .layout.-hover .acf-fc-layout-controls .acf-icon.-minus {
+	visibility: hidden;	
+}
+
+.acf-flexible-content > .values > .layout:hover > .acf-fc-layout-controls .acf-icon.-plus, 
+.acf-flexible-content > .values > .layout.-hover > .acf-fc-layout-controls .acf-icon.-plus, 
+.acf-flexible-content > .values > .layout:hover > .acf-fc-layout-controls .acf-icon.-minus, 
+.acf-flexible-content > .values > .layout.-hover > .acf-fc-layout-controls .acf-icon.-minus	{
+	visibility: visible;
+}
+
 /* All collapsed */
+
 .acf-fields.-top > .acf-field-flexible-content > .acf-input > .acf-flexible-content > .values > .layout > .acf-fc-layout-handle {
 	border-bottom-width: 0;
 }
@@ -31,6 +47,7 @@
 .acf-fields.-top > .acf-field-flexible-content > .acf-input > .acf-flexible-content > .values > .layout > .acf-table {
 	display: none;
 }
+
 
 /* Modal
 ------------------------------------------------------------*/
@@ -54,13 +71,13 @@ body.acf-modal-open {
 .acf-flexible-content .layout.-modal {
 	z-index: 10001;
 	position: fixed !important;
-	top: 5vh !important;
+	top: 50px !important;
 	left: 0 !important;
 	right: 0 !important;
 	margin: auto;
 	width: 90vw;
 	max-width: 960px;
-	max-height: 90vh;
+	max-height: calc(100vh - 100px);
 	box-shadow: 0 5px 15px rgba(0,0,0,0.7);
 }
 
@@ -71,7 +88,7 @@ body.acf-modal-open {
 .acf-flexible-content .layout.-modal > .acf-fc-modal-content {
 	display: block;
     overflow: auto;
-    max-height: calc(90vh - 38px);
+    max-height: calc(100vh - 138px);
 }
 
 .acf-flexible-content .layout .acf-fc-modal-title {
@@ -109,7 +126,7 @@ body.acf-modal-open {
 	background: #ddd;
 }
 
-.acf-flexible-content .layout.-modal .acf-fc-modal-title {
+.acf-flexible-content .layout.-modal > .acf-fc-modal-title {
 	display: block;
 }
 
@@ -129,4 +146,15 @@ body.acf-modal-open {
 .acf-flexible-content .layout.layout-error-messages > .acf-fc-layout-handle .acf-fc-layout-order { 
 	background: #F55E4F;
 	color: #fff; 
+}
+
+/* Animation */
+
+@keyframes fcModalSlide {
+	from { transform: translateY(-30px); opacity: 0; }
+	to { transform: translateY(0px); opacity: 1; }		
+}
+
+.acf-flexible-content .layout.-modal.-animate {
+	animation: fcModalSlide .2s ease-out;
 }

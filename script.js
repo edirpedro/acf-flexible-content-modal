@@ -1,6 +1,8 @@
 (function($) {
 		
 	var ACFFCM = {
+		
+		modals: [],
 
 		init: function() {
 			
@@ -12,17 +14,15 @@
 			// Add modal to current layouts
 			
 			acf.addAction('load_field/type=flexible_content', function(field) {
-				field.$el.find('.layout:not(.acf-clone):not(.fc-modal)').each(function() {
-					var $layout = $(this);
-					if(!ACFFCM.isNested($layout))
-						ACFFCM.addModal($layout);
+				field.$el.find('.acf-flexible-content:first > .values > .layout:not(.fc-modal)').each(function() {
+					ACFFCM.addModal($(this));
 				});
 			});
 
 			// Add modal to new layouts
 			
 			acf.addAction('after_duplicate', function($clone, $el) {
-				if($el.is('.layout') && !ACFFCM.isNested($clone))
+				if($el.is('.layout'))
 					ACFFCM.addModal($el);
 			});
 
@@ -54,14 +54,6 @@
 						
 		},
 		
-		// Check for nested FC fields to do not include a modal in it
-		
-		isNested: function($layout) {
-			
-			return $layout.parents('.acf-field-flexible-content').length > 1;
-			
-		},
-		
 		addModal: function($layout) {
 										
 			$layout.addClass('fc-modal');
@@ -86,47 +78,81 @@
 		},
 		
 		open: function() {
-			
-			var $layout = $(this).parents('.layout');
+						
+			var $layout = $(this).parents('.layout:first');
 			
 			var caption = $layout.find('> .acf-fc-layout-handle').html();
 			var a = $('<a class="dashicons dashicons-no -cancel" />').on('click', ACFFCM.close);
 			
-			$layout.find('.acf-fc-modal-title').html(caption).append(a);
+			$layout.find('> .acf-fc-modal-title').html(caption).append(a);
 			$layout.addClass('-modal');
 			
-			$('body').append("<div id='acf-flexible-content-modal-overlay' />");
-			$('#acf-flexible-content-modal-overlay').on('click', ACFFCM.close);
-			$('body').addClass('acf-modal-open');
-
+			ACFFCM.modals.push($layout);
+			
+			ACFFCM.overlay(true);
+			
 		},
 		
 		close: function() {
-
+			
+			var $layout = ACFFCM.modals.pop();
+			
 			// Refresh layout title
 			
-			var modal = $('.acf-flexible-content .layout.-modal');
-			var fc = modal.parents('.acf-field-flexible-content');
-			fc = acf.getField(fc.attr('data-key'));
-			fc.closeLayout(fc.$layout(modal.index()));
+			var fc = $layout.parents('.acf-field-flexible-content:first');
+			fc = acf.getInstance(fc);
+			var field = fc.getField(fc.data.key);
+			field.closeLayout(field.$layout($layout.index()));
 			
 			// Close
-						
-			$('body').removeClass('acf-modal-open');
-			$('.acf-flexible-content .layout').removeClass('-modal');
-			$('#acf-flexible-content-modal-overlay').remove();
 
+			$layout.find('> .acf-fc-modal-title').html(' ');
+			$layout.removeClass('-modal').css('visibility', '');
+						
+			ACFFCM.overlay(false);
+
+		},
+		
+		overlay: function(show) {
+						
+			if(show === true && !$('body').hasClass('acf-modal-open')) {
+				
+				var overlay = $('<div id="acf-flexible-content-modal-overlay" />').on('click', ACFFCM.close);
+				$('body').addClass('acf-modal-open').append(overlay);
+				
+			} else if(show === false && ACFFCM.modals.length == 0) {
+						
+				$('#acf-flexible-content-modal-overlay').remove();
+				$('body').removeClass('acf-modal-open');
+
+			}
+			
+			ACFFCM.refresh();
+			
+		},
+		
+		refresh: function() {
+		
+			$.each(ACFFCM.modals, function() {
+				$(this).css('visibility', 'hidden').removeClass('-animate');
+			});
+			
+			var index = ACFFCM.modals.length - 1;
+			
+			if(index in ACFFCM.modals)
+				ACFFCM.modals[index].css('visibility', 'visible').addClass('-animate');
+							
 		},
 		
 		invalidField: function($el) {
 			
-			$el.parents('.layout:not(.acf-clone)').addClass('layout-error-messages'); 
+			$el.parents('.layout').addClass('layout-error-messages'); 
 			
 		},
 		
 		validField: function($el) {
 		
-			$el.parents('.layout:not(.acf-clone)').each(function() {
+			$el.parents('.layout').each(function() {
 				var $layout = $(this);
 				if($layout.find('.acf-error').length == 0)
 					$layout.removeClass('layout-error-messages');

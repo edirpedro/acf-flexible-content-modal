@@ -63,14 +63,14 @@ class ACFFCM {
 	*  Register Admin Stylesheets
 	*/
 	static public function admin_css() {
-		wp_enqueue_style('acf-fc-modal', plugins_url(self::$path . '/style.css', __FILE__), array('acf-input'));
+		wp_enqueue_style('acf-fc-modal', plugins_url(self::$path . '/style.css', __FILE__), array('acf-pro-input'));
 	}
 	
 	/*
 	*  Register Admin Scripts
 	*/
 	static public function admin_script() {
-		wp_enqueue_script('acf-fc-modal', plugins_url(self::$path . '/script.js', __FILE__), array('acf-input'));
+		wp_enqueue_script('acf-fc-modal', plugins_url(self::$path . '/script.js', __FILE__), array('acf-pro-input'));
 	}
 	
 	/*

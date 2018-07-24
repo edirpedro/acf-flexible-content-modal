@@ -34,7 +34,7 @@ If you want to name each of the flexible content layout, you can use the ACF hoo
 == Changelog ==
 
 = 1.2.1 =
-* Fixed selector that finds nested fc fields.
+* All Flexible Content fields can open in a modal, even nested fields.
 * Fixed action to refresh layout_title hook.
 * Pressing ESC makes the modal to close.
 * Some CSS changes.
