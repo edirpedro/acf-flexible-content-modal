@@ -98,10 +98,9 @@
 			var $layout = ACFFCM.modals.pop();
 			
 			// Refresh layout title
-			
+						
 			var fc = $layout.parents('.acf-field-flexible-content:first');
-			fc = acf.getInstance(fc);
-			var field = fc.getField(fc.data.key);
+			var field = acf.getInstance(fc);
 			field.closeLayout(field.$layout($layout.index()));
 			
 			// Close
