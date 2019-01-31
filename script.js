@@ -86,7 +86,8 @@
 			
 			$layout.find('> .acf-fc-modal-title').html(caption).append(a);
 			$layout.addClass('-modal');
-			
+			$layout.removeClass('-highlight-closed');
+
 			ACFFCM.modals.push($layout);
 			
 			ACFFCM.overlay(true);
@@ -107,6 +108,7 @@
 
 			$layout.find('> .acf-fc-modal-title').html(' ');
 			$layout.removeClass('-modal').css('visibility', '');
+			$layout.addClass('-highlight-closed');
 						
 			ACFFCM.overlay(false);
 
