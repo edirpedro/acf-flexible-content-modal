@@ -111,6 +111,11 @@
 
 			$layout.find('> .acf-fc-modal-title').html(' ');
 			$layout.removeClass('-modal').css('visibility', '');
+			$layout.addClass('-highlight-closed');
+
+			setTimeout(function() {
+				$layout.removeClass('-highlight-closed');				
+			}, 750);
 						
 			ACFFCM.overlay(false);
 
