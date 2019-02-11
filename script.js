@@ -63,6 +63,10 @@
 			
 			$layout.find('> .acf-fc-layout-handle').off('click');
 			$layout.find('> .acf-fc-layout-controls > a.-collapse').remove();
+			
+			// Open modal when the collapsed layout is clicked
+
+			$layout.find('> .acf-fc-layout-handle').on('click', ACFFCM.open);
 					
 			// Edit button
 			
