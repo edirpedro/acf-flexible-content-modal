@@ -1,5 +1,6 @@
 {
 	"name": "edirpedro/acf-flexible-content-modal",
+	"version": "1.2.4",
 	"type": "wordpress-plugin",
 	"license": "MIT",
 	"description": "Make ACF Flexible Content editing the content of each layout using a Modal window.",

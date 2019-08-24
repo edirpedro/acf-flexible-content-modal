@@ -3,7 +3,7 @@ Contributors: edir
 Tags: acf, advanced-custom-field, flexible-content
 Requires at least: 4.5.2
 Tested up to: 5.0.3
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Make ACF Flexible Content editing the content of each layout using a Modal windo
 
 Make ACF Flexible Content editing the content of each layout using a Modal window.
 
-The button to collapse the layout's elements will be replaced to a Edit button, the fields will be opened inside a Modal window. This will let you order the list of layouts easily and to fill the fields separately.
+The button to collapse the layout's elements will be changed to a Edit button, the fields will be opened inside a Modal window. This will let you order the list of layouts easily and to fill the fields separately. You can also open the modal by double clicking on the layout.
 
 == Installation ==
 
@@ -32,6 +32,11 @@ If you want to name each of the flexible content layout, you can use the ACF hoo
 2. Modal window to fill the contents.
 
 == Changelog ==
+
+= 1.2.4 =
+* Code cleanup
+* Fixed typos in JS and CSS for ACF versions <= 5.6
+* Open modal when layout field is double clicked instead of a single click to prevent opening on re-order
 
 = 1.2.3 =
 * Highlight layout field when modal is closed
