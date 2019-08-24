@@ -21,7 +21,7 @@
 		"advanced custom fields",
 		"flexible content"
 	],
-	"prefer-stable": true,
+	"minimum-stability": "stable",
 	"require": {
 		"composer/installers": "^1.0",
 		"php": ">=5.2.0"
