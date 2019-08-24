@@ -1,170 +1,186 @@
-
-/* ACF Core 
+/* ACF Core
 ------------------------------------------------------------*/
+.acf-flexible-content .layout .acf-fc-modal-content>.acf-table {
+  border: 0 none;
+  box-shadow: none;
+}
 
-.acf-flexible-content .layout .acf-fc-modal-content > .acf-table {
-	border: 0 none;
-	box-shadow: none;
+.acf-flexible-content .layout .acf-fc-modal-content>.acf-table>tbody>tr {
+  background: #fff;
 }
-.acf-flexible-content .layout .acf-fc-modal-content > .acf-table > tbody > tr {
-	background: #fff;
+
+.acf-flexible-content .layout .acf-fc-modal-content>.acf-table>thead>tr>th {
+  background: #F9F9F9;
 }
-.acf-flexible-content .layout .acf-fc-modal-content > .acf-table > thead > tr > th {
-	background: #F9F9F9;
+
+.acf-repeater .acf-row.-collapsed .acf-fc-modal-content>.acf-fields>* {
+  display: none !important;
 }
-.acf-repeater .acf-row.-collapsed .acf-fc-modal-content > .acf-fields > * {
-	display: none !important;
-}
-.acf-repeater .acf-row.-collapsed .acf-fc-modal-content > .acf-fields > .acf-field.-collapsed-target {
-	display: block !important;
+
+.acf-repeater .acf-row.-collapsed .acf-fc-modal-content>.acf-fields>.acf-field.-collapsed-target {
+  display: block !important;
 }
 
 .acf-tooltip,
 .acf-fc-popup {
-	z-index: 10002 !important;
+  z-index: 10002 !important;
 }
 
-.acf-flexible-content .layout:hover .acf-fc-layout-controls .acf-icon.-plus, 
-.acf-flexible-content .layout.-hover .acf-fc-layout-controls .acf-icon.-plus, 
-.acf-flexible-content .layout:hover .acf-fc-layout-controls .acf-icon.-minus, 
+.acf-flexible-content .layout:hover .acf-fc-layout-controls .acf-icon.-plus,
+.acf-flexible-content .layout.-hover .acf-fc-layout-controls .acf-icon.-plus,
+.acf-flexible-content .layout:hover .acf-fc-layout-controls .acf-icon.-minus,
 .acf-flexible-content .layout.-hover .acf-fc-layout-controls .acf-icon.-minus {
-	visibility: hidden;	
+  visibility: hidden;
 }
 
-.acf-flexible-content > .values > .layout:hover > .acf-fc-layout-controls .acf-icon.-plus, 
-.acf-flexible-content > .values > .layout.-hover > .acf-fc-layout-controls .acf-icon.-plus, 
-.acf-flexible-content > .values > .layout:hover > .acf-fc-layout-controls .acf-icon.-minus, 
-.acf-flexible-content > .values > .layout.-hover > .acf-fc-layout-controls .acf-icon.-minus	{
-	visibility: visible;
+.acf-flexible-content>.values>.layout:hover>.acf-fc-layout-controls .acf-icon.-plus,
+.acf-flexible-content>.values>.layout.-hover>.acf-fc-layout-controls .acf-icon.-plus,
+.acf-flexible-content>.values>.layout:hover>.acf-fc-layout-controls .acf-icon.-minus,
+.acf-flexible-content>.values>.layout.-hover>.acf-fc-layout-controls .acf-icon.-minus {
+  visibility: visible;
 }
 
 /* All collapsed */
-
-.acf-fields.-top > .acf-field-flexible-content > .acf-input > .acf-flexible-content > .values > .layout > .acf-fc-layout-handle {
-	border-bottom-width: 0;
-}
-.acf-fields.-top > .acf-field-flexible-content > .acf-input > .acf-flexible-content > .values > .layout > .acf-fields,
-.acf-fields.-top > .acf-field-flexible-content > .acf-input > .acf-flexible-content > .values > .layout > .acf-table {
-	display: none;
+.acf-fields.-top>.acf-field-flexible-content>.acf-input>.acf-flexible-content>.values>.layout>.acf-fc-layout-handle {
+  border-bottom-width: 0;
 }
 
+.acf-fields.-top>.acf-field-flexible-content>.acf-input>.acf-flexible-content>.values>.layout>.acf-fields,
+.acf-fields.-top>.acf-field-flexible-content>.acf-input>.acf-flexible-content>.values>.layout>.acf-table {
+  display: none;
+}
 
 /* Modal
 ------------------------------------------------------------*/
-
-body.acf-modal-open {	
-	overflow: hidden; /* popup from fc layout selector can't scroll */	
+body.acf-modal-open {
+  overflow: hidden;
+  /* popup from fc layout selector can't scroll */
 }
 
 #acf-flexible-content-modal-overlay {
-	background: #000;
-	opacity: 0.7;
-	filter: alpha(opacity=70);
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 10000;
+  background: #000;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
 }
 
 .acf-flexible-content .layout.-modal {
-	z-index: 10001;
-	position: fixed !important;
-	top: 50px !important;
-	left: 0 !important;
-	right: 0 !important;
-	margin: auto;
-	width: 90vw;
-	max-width: 960px;
-	max-height: calc(100vh - 100px);
-	box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  z-index: 10001;
+  position: fixed !important;
+  top: 50px !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto;
+  width: 90vw;
+  max-width: 960px;
+  max-height: calc(100vh - 100px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
 }
 
-.acf-flexible-content .layout > .acf-fc-modal-content {
-	display: none;
+.acf-flexible-content .layout>.acf-fc-modal-content {
+  display: none;
 }
 
-.acf-flexible-content .layout.-modal > .acf-fc-modal-content {
-	display: block;
-    overflow: auto;
-    max-height: calc(100vh - 138px);
+.acf-flexible-content .layout.-modal>.acf-fc-modal-content {
+  display: block;
+  overflow: auto;
+  max-height: calc(100vh - 138px);
 }
 
 .acf-flexible-content .layout .acf-fc-modal-title {
-	position: relative;
-	display: none;
-	box-sizing: border-box;
-	height: 37px;
-	line-height: 37px;
-	padding: 0 40px 0 10px;
-	background: #eee;
-	border-bottom: 1px solid #dfdfdf;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  position: relative;
+  display: none;
+  box-sizing: border-box;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 40px 0 10px;
+  background: #eee;
+  border-bottom: 1px solid #dfdfdf;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.acf-flexible-content .layout .acf-fc-modal-title > .-cancel {
-	cursor: pointer;
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: block;
-	width: 37px;
-	height: 37px;
-	color: #666;
-	line-height: 37px;
-	text-align: center;
+.acf-flexible-content .layout .acf-fc-modal-title>.-cancel {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 37px;
+  height: 37px;
+  color: #666;
+  line-height: 37px;
+  text-align: center;
 }
 
-.acf-flexible-content .layout .acf-fc-modal-title > .-cancel:hover {
-	color: #F55E4F;
+.acf-flexible-content .layout .acf-fc-modal-title>.-cancel:hover {
+  color: #F55E4F;
 }
 
-.acf-flexible-content .layout .acf-fc-modal-title > .acf-fc-layout-order {
-	background: #ddd;
+.acf-flexible-content .layout .acf-fc-modal-title>.acf-fc-layout-order {
+  background: #ddd;
 }
 
-.acf-flexible-content .layout.-modal > .acf-fc-modal-title {
-	display: block;
+.acf-flexible-content .layout.-modal>.acf-fc-modal-title {
+  display: block;
 }
 
-.acf-flexible-content .layout.-modal > .acf-fc-layout-controls,
-.acf-flexible-content .layout.-modal > .acf-fc-layout-handle {
-	display: none;
+.acf-flexible-content .layout.-modal>.acf-fc-layout-controls,
+.acf-flexible-content .layout.-modal>.acf-fc-layout-handle {
+  display: none;
 }
 
-.acf-flexible-content .layout.fc-modal > .acf-fc-layout-handle {
-	border: none !important;
+.acf-flexible-content .layout.fc-modal>.acf-fc-layout-handle {
+  border: none !important;
 }
 
 .acf-icon.-pencil::before {
-	font-size: 12px;	
+  font-size: 12px;
 }
 
-.acf-flexible-content .layout.layout-error-messages > .acf-fc-layout-handle .acf-fc-layout-order { 
-	background: #F55E4F;
-	color: #fff; 
+.acf-flexible-content .layout.layout-error-messages>.acf-fc-layout-handle .acf-fc-layout-order {
+  background: #F55E4F;
+  color: #fff;
 }
 
 /* Animation */
-
 @keyframes fcModalSlide {
-	from { transform: translateY(-30px); opacity: 0; }
-	to { transform: translateY(0px); opacity: 1; }		
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 .acf-flexible-content .layout.-modal.-animate {
-	animation: fcModalSlide .2s ease-out;
+  animation: fcModalSlide .2s ease-out;
 }
 
 @keyframes highlightClosed {
-	0% { background: #fff; }
-	30% { background: rgba(0, 133, 186, 0.3); } /* WordPress blue, faded */
-	100% { background: #fff; }		
+  0% {
+    background: #fff;
+  }
+
+  30% {
+    background: rgba(0, 133, 186, 0.3);
+  }
+
+  /* WordPress blue, faded */
+  100% {
+    background: #fff;
+  }
 }
 
 .acf-flexible-content .layout.-highlight-closed {
-	animation: highlightClosed .65s .1s ease-out;
+  animation: highlightClosed .65s .1s ease-out;
 }

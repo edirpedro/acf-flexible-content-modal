@@ -6,7 +6,7 @@
 
 ## Description
 
-The button to collapse the layout's elements will be changed to a Edit button, the fields will be opened inside a Modal windows. This will let you order the list of layouts easily and to fill the fields separately.
+The button to collapse the layout's elements will be changed to a Edit button, the fields will be opened inside a Modal window. This will let you order the list of layouts easily and to fill the fields separately. You can also open the modal by double clicking on the layout.
 
 [Plugin Page](https://wordpress.org/plugins/acf-flexible-content-modal/)
 
@@ -25,4 +25,3 @@ Modal window to fill the contents.
 ### How to name each flexible content layout?
 
 If you want to name each of the flexible content layout, you can use the ACF hook [acf/fields/flexible_content/layout_title](https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/).
-
