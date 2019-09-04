@@ -66,7 +66,12 @@
 			
 			// Open modal when the collapsed layout is clicked
 
-			$layout.find('> .acf-fc-layout-handle').on('click', ACFFCM.open);
+			$layout.find('> .acf-fc-layout-handle').on('click', function(event) {
+				// Don't open modal when clicking on links within the handle
+				if ( event.target.tagName.toLowerCase() !== 'a' ) {
+					ACFFCM.open.call(this);
+				}
+			});
 					
 			// Edit button
 			
